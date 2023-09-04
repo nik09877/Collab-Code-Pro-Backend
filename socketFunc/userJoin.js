@@ -10,6 +10,7 @@ const socketActions = require('../utils/socket-utils/socketActions');
 module.exports = function (io) {
   try {
     io.on(socketActions.CONNECTION, (socket) => {
+      console.log('user joined');
       socket.on(
         socketActions.JOIN,
         ({ username, room, password }, callback) => {
@@ -121,7 +122,8 @@ module.exports = function (io) {
 
           if (!user) return;
 
-          console.log('disconnecting', user);
+          // console.log('disconnecting', user);
+          console.log('user disconnected');
 
           if (user) {
             try {

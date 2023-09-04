@@ -30,7 +30,7 @@ const params = {
 
 module.exports = function (io) {
   try {
-    io.on(socketAction.CONNECTION, (socket) => {
+    io.on(socketActions.CONNECTION, (socket) => {
       socket.on(socketActions.CODEFORCES_PROBLEM, async (link) => {
         try {
           let problem = '';

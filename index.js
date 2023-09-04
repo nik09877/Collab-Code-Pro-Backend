@@ -22,7 +22,7 @@ const io = new Server(server, {
 require('./socketFunc/userJoin')(io);
 require('./socketFunc/chat')(io);
 require('./socketFunc/compile')(io);
-// require("./socketFunc/problem")(io);
+require('./socketFunc/problem')(io);
 // require("./socketFunc/Contest-Join")(io);
 
 const PORT = process.env.PORT || 8080;

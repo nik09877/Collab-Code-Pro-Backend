@@ -10,10 +10,9 @@ const socketActions = require('../utils/socket-utils/socketActions');
 module.exports = function (io) {
   try {
     io.on(socketActions.CONNECTION, (socket) => {
-      console.log('user joined');
       socket.on(
         socketActions.JOIN,
-        ({ username, room, password }, callback) => {
+        ({ username, room, password = 'password' }, callback) => {
           try {
             const { error, user } = addUser({
               id: socket.id,
@@ -141,7 +140,6 @@ module.exports = function (io) {
                   removePassword(user.room);
                 }
                 socket.leave(user.room);
-                console.log('Disconnected');
               };
               socketsInstances();
             } catch (e) {

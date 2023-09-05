@@ -2,11 +2,10 @@
 const users = [];
 
 //stores {room:roomId,password:roomPassword}
-//TODO Confused about what is getting stored
 const passwordList = [];
 
 //Adding user in a room
-const addUser = ({ id, username, room, password }) => {
+const addUser = ({ id, username, room, password = 'password' }) => {
   username = username.trim().toLowerCase();
   room = room.trim().toLowerCase();
   password = password.trim();

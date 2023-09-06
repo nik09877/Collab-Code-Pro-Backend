@@ -21,4 +21,5 @@ module.exports = {
 
   //FETCHING PROBLEMS
   CODEFORCES_PROBLEM: 'codeforces-problem',
+  PROBLEM: 'problem',
 };

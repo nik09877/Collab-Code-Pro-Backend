@@ -61,7 +61,7 @@ module.exports = function (io) {
           Please input correct url of the problem !<br/>And make sure Url is from following websites only: geeksforgeeks , codeforces , codechef , atcoder,cses, codeDrills
           </div>`;
           }
-          io.to(user.room).emit('problem', problem);
+          io.to(user.room).emit(socketActions.PROBLEM, problem);
         } catch (e) {
           console.log(e);
         }
@@ -76,10 +76,11 @@ module.exports = function (io) {
 async function chromiumFetch(site, URL) {
   try {
     const browser = await puppeteer.launch({
-      headless: true,
+      // headless: true,
+      headless: 'new',
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
-    console.log(site);
+    // console.log(site);
     const page = await browser.newPage();
     await page.goto(URL);
     let text = '';

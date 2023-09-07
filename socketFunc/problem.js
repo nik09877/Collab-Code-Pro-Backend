@@ -32,6 +32,15 @@ module.exports = function (io) {
   try {
     io.on(socketActions.CONNECTION, (socket) => {
       socket.on(socketActions.CODEFORCES_PROBLEM, async (link) => {
+        //get the room that user is in
+        const sids = io.of('/').adapter.sids;
+        const room = [...sids.get(socket.id)][1];
+        //emit problem fetch message
+        if (!room) {
+          return;
+        }
+        socket.broadcast.to(room).emit(socketActions.CODEFORCES_PROBLEM);
+
         try {
           let problem = '';
           if (link == null || link == undefined) {

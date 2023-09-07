@@ -3,7 +3,7 @@ module.exports = {
   CONNECTION: 'connection',
   DISCONNECT: 'disconnect',
   //COMPILER
-  Compile_ON: 'Compile_ON',
+  COMPILE_ON: 'Compile_ON',
   COMPILE_OFF: 'COMPILE_OFF',
 
   //MESSAGE

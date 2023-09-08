@@ -15,10 +15,6 @@ module.exports = function (io) {
             const sids = io.of('/').adapter.sids;
             const room = [...sids.get(socket.id)][1];
 
-            //FIXME Try to uncomment if something doesn't work
-            // const rooms = socket.rooms;
-            // const roomNames = Object.keys(rooms);
-            // const room = roomNames[0];
             if (!room) {
               return;
             }

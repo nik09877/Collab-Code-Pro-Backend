@@ -22,4 +22,12 @@ module.exports = {
   //FETCHING PROBLEMS
   CODEFORCES_PROBLEM: 'codeforces-problem',
   PROBLEM: 'problem',
+
+  //CONTEST RELATED
+  CONTEST_STARTING: 'Contest-Starting',
+  CONTEST_JOIN: 'Contest-Join',
+  START_CONTEST: 'Start-Contest',
+  CONTEST_UPDATE: 'Contest-Update',
+  LEAVE_CONTEST: 'Leave-Contest',
+  UPDATE: 'Update',
 };

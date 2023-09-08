@@ -94,8 +94,6 @@ async function chromiumFetch(site, URL) {
     await page.goto(URL);
     let text = '';
 
-    //FIXME uncomment if not working
-    // await page.waitForTimeout(params[site].wait);
     await new Promise((r) => setTimeout(r, params[site].wait));
 
     text = await page.evaluate((q) => {

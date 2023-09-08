@@ -68,7 +68,6 @@ const compilerFunc = async (lang, code, input) => {
     });
     return response;
   } catch (e) {
-    // console.log(e);
     return {
       data: {
         e: 'Error:404\nOops Something went wrong\n😢😞🙁',

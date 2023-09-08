@@ -76,11 +76,6 @@ module.exports = function (io) {
       socket.on(socketActions.TAKE_INITIAL_IO, (data) => {
         try {
           if (data.reason === 'code-editor') {
-            console.log(
-              socketActions.TAKE_INITIAL_IO,
-              data.inputText,
-              data.outputText
-            );
             io.to(data.id).emit(socketActions.IO_RECEIVED, {
               inputText: data.inputText,
               outputText: data.outputText,
@@ -95,7 +90,6 @@ module.exports = function (io) {
       socket.on(socketActions.CHANGE_IO, (data) => {
         try {
           if (data.reason === 'code-editor') {
-            //FIXME Uncomment if doesn;t work
             // const sids = io.of('/').adapter.sids; //sids gives map of every user socketid to its room
             // const room = [...sids.get(socket.id)][1];
 
@@ -121,7 +115,6 @@ module.exports = function (io) {
 
           if (!user) return;
 
-          // console.log('disconnecting', user);
           console.log('user disconnected');
 
           if (user) {

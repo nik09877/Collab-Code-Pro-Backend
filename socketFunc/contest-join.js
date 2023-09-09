@@ -41,7 +41,7 @@ module.exports = function (io) {
           //HERE Name is cf handle
           const obj = checkContest(user.RoomId, user.Name, socket.id);
 
-          console.log(obj.contest);
+          // console.log(obj.contest);
           if (obj.error) {
             return callback({ error: obj.error, contest: obj.contest });
           }
@@ -65,6 +65,7 @@ module.exports = function (io) {
           console.log('contest-joined');
           callback({ error: obj.error, contest: obj.contest });
 
+          //TODO LISTEN TO JOIN AND LEAVE EVENTS BUG IN CHAT PANEL
           const teamMembers = getTeamMembers(obj.contest.UsersId);
           io.in(user.RoomId).emit(socketActions.PEOPLE_IN_ROOM, {
             teamMembers,
@@ -85,7 +86,7 @@ module.exports = function (io) {
             axios
               .get(URL)
               .then((res) => {
-                console.log(res);
+                // console.log(res);
                 const problemArray = res.data.result.problems.slice(0);
                 const contest = startContest({
                   room,
@@ -107,7 +108,7 @@ module.exports = function (io) {
       socket.on(socketActions.CONTEST_UPDATE, async ({ roomId }) => {
         try {
           const contest = await updateContest(roomId);
-          console.log(contest);
+          // console.log(contest);
           io.to(roomId).emit(socketActions.UPDATE, contest);
         } catch (e) {
           console.log(e);
@@ -120,14 +121,14 @@ module.exports = function (io) {
             roomId: user.roomId,
             name: user.name,
           });
-          console.log(contest);
+          // console.log(contest);
           const teamMembers = getTeamMembers(contest.UsersId);
-          console.log(teamMembers);
-          io.to(user.room).emit(socketActions.PEOPLE_IN_ROOM, {
+          // console.log(teamMembers);
+          io.to(user.roomId).emit(socketActions.PEOPLE_IN_ROOM, {
             teamMembers,
             userLeft: user.name.trim().toLowerCase(),
           });
-          socket.leave(user.room);
+          socket.leave(user.roomId);
         } catch (e) {
           console.log(e);
         }

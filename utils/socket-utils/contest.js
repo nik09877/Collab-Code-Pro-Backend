@@ -328,7 +328,7 @@ const updateContest = async (roomId) => {
       }
     });
 
-    console.log(unsolvedProblems);
+    // console.log(unsolvedProblems);
 
     //Checking the problems solved by each user
     const promise = await contest.UsersId.map(async (user) => {

@@ -48,13 +48,13 @@ module.exports = function (io) {
 
           //Delete Contests after 24 hours
           if (!DeleteIntervalOn) {
-            console.log('Starting Interval');
+            // console.log('Starting Interval');
             DeleteIntervalOn = true;
             const interval = setInterval(() => {
-              console.log('deleting data.....');
+              // console.log('deleting data.....');
               deleteContests();
               if (getContestLength() == 0) {
-                console.log('Stopping Interval');
+                // console.log('Stopping Interval');
                 DeleteIntervalOn = false;
                 clearInterval(interval);
               }
@@ -62,12 +62,12 @@ module.exports = function (io) {
           }
 
           socket.join(user.RoomId);
-          console.log('contest-joined');
+          // console.log('contest-joined');
           callback({ error: obj.error, contest: obj.contest });
 
           //TODO LISTEN TO JOIN AND LEAVE EVENTS BUG IN CHAT PANEL
           const teamMembers = getTeamMembers(obj.contest.UsersId);
-          io.in(user.RoomId).emit(socketActions.PEOPLE_IN_ROOM, {
+          io.to(user.RoomId).emit(socketActions.PEOPLE_IN_ROOM, {
             teamMembers,
             userJoin: user.Name.trim().toLowerCase(),
           });
@@ -116,7 +116,7 @@ module.exports = function (io) {
       });
       socket.on(socketActions.LEAVE_CONTEST, (user) => {
         try {
-          console.log('contest-Left');
+          // console.log('contest-Left');
           const contest = removeContestUser({
             roomId: user.roomId,
             name: user.name,

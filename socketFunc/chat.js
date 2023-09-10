@@ -21,6 +21,7 @@ module.exports = function (io) {
       socket.on(socketActions.CONTEST_MSG, ({ message, room, name }) => {
         try {
           const data = { text: message, user: name };
+          // console.log('sending message to users');
           //   emit an event to all clients who are in a specific room
           io.to(room).emit(socketActions.SERVER_MSG, data);
         } catch (e) {

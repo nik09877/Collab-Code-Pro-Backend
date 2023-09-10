@@ -135,7 +135,7 @@ const createContest = (roomId, name, socketid) => {
 
     //Inserting the contest in the array
     contests.push(lockout);
-    console.log('contest-created!');
+    // console.log('contest-created!');
     return { error: null, contest: lockout };
   } catch (e) {
     return {
@@ -179,7 +179,7 @@ const joinContest = (roomId, name, socketid) => {
     contest.UsersId.push(name);
     contest.Users.push(newUser);
 
-    console.log('Joined the existing contest');
+    // console.log('Joined the existing contest');
     return { error: null, contest: contest };
   } catch (e) {
     return {
@@ -203,7 +203,7 @@ const removeContestUser = ({ roomId, name }) => {
     const UserIds = contest.UsersId;
     const users = UserIds.filter((id) => id !== name);
     contest.UsersId = users;
-    console.log(contest, 'removed user');
+    // console.log(contest, 'removed user');
     return contest;
   } catch (e) {
     return {
@@ -272,7 +272,7 @@ const startContest = ({
     contest.maxRating = maxRating;
     /////***///////////
 
-    console.log(contest);
+    // console.log(contest);
     return contest;
   } catch (e) {
     return {
@@ -338,7 +338,7 @@ const updateContest = async (roomId) => {
         unsolvedProblems.map((prob) => {
           checkIfProblemSolved(user, prob, roomId, res.data.result);
         });
-        console.log('fullfilled');
+        // console.log('fullfilled');
       } catch (e) {
         console.log('rejected');
       }

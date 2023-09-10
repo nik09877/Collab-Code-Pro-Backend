@@ -27,7 +27,7 @@ module.exports = function (io) {
             try {
               socket.join(user.room);
 
-              console.log('A new user joined', user.room, user.username);
+              // console.log('A new user joined', user.room, user.username);
             } catch (e) {
               return console.log("can't join");
             }
@@ -115,7 +115,7 @@ module.exports = function (io) {
 
           if (!user) return;
 
-          console.log('user disconnected');
+          // console.log('user disconnected');
 
           if (user) {
             try {

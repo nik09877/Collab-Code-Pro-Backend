@@ -340,7 +340,7 @@ const updateContest = async (roomId) => {
         });
         // console.log('fullfilled');
       } catch (e) {
-        console.log('rejected');
+        // console.log('rejected');
       }
       return;
     });
@@ -350,7 +350,7 @@ const updateContest = async (roomId) => {
       await Promise.all(promise);
       updateScores(roomId);
     } catch (e) {
-      console.log('no such user');
+      // console.log('no such user');
     }
     return contest;
   } catch (e) {
@@ -389,7 +389,7 @@ const checkIfProblemSolved = (user, unsolvedProblem, roomId, arr) => {
             points: prob.problem.rating,
           });
         } else {
-          console.log('error');
+          // console.log('error');
         }
       }
     });

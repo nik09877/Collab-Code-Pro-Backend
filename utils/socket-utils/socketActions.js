@@ -30,4 +30,12 @@ module.exports = {
   CONTEST_UPDATE: 'Contest-Update',
   LEAVE_CONTEST: 'Leave-Contest',
   UPDATE: 'Update',
+
+  //COLLAB DRAW
+  COLLAB_DRAW_JOIN: 'collab-draw-join',
+  WHITEBOARD_STATE: 'whiteboard-state',
+  ELEMENT_UPDATE: 'element-update',
+  WHITEBOARD_CLEAR: 'whiteboard-clear',
+  CURSOR_POSITION: 'cursor-position',
+  COLLAB_DRAW_USER_DISCONNECTED: 'collab-draw-user-disconnected',
 };

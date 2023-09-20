@@ -17,6 +17,7 @@ const io = new Server(server, {
     origin: '*', //allow all connections
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   },
+  protocol: 'wss',
 });
 
 require('./socketFunc/userJoin')(io);

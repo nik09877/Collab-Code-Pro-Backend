@@ -38,4 +38,8 @@ module.exports = {
   WHITEBOARD_CLEAR: 'whiteboard-clear',
   CURSOR_POSITION: 'cursor-position',
   COLLAB_DRAW_USER_DISCONNECTED: 'collab-draw-user-disconnected',
+
+  //CODE_EDITOR
+  CODE_CHANGE: 'CODE_CHANGE',
+  CODE_SYNC: 'CODE_SYNC',
 };

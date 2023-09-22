@@ -26,6 +26,7 @@ require('./socketFunc/compile')(io);
 require('./socketFunc/problem')(io);
 require('./socketFunc/contest-join')(io);
 require('./socketFunc/collab-draw-join')(io);
+require('./socketFunc/code-editor')(io);
 
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log(`listening on port ${PORT}`));

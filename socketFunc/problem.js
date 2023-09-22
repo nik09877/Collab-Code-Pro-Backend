@@ -107,5 +107,5 @@ async function chromiumFetch(site, URL) {
     console.log(e);
   }
 
-  return 'Error: Try again :( ';
+  return 'Error: Try again Later :( ';
 }

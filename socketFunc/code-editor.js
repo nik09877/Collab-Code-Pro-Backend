@@ -21,6 +21,9 @@ module.exports = function (io) {
           if (!room) {
             return;
           }
+          //if same code don't broadcast
+          if (code === roomCode[room]) return;
+
           roomCode[room] = code;
           // want to send a message to all clients in the room except the sender (socket)
           socket.broadcast.to(room).emit(socketActions.CODE_CHANGE, { code });
